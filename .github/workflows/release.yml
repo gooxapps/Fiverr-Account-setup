@@ -31,12 +31,17 @@ jobs:
         run: npm install
 
       - name: Build Tauri App
-        uses: tauri-apps/tauri-action@v0
+        run: npx tauri build
+
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: auto
-          releaseName: 'Fiverr Gig Generator AI - Latest Release'
-          releaseBody: 'Download the `.dmg` or `.app.tar.gz` file below to install Fiverr Gig Generator AI on your Mac.'
-          releaseDraft: false
+          tag_name: v1.0.${{ github.run_number }}
+          name: 'Fiverr Gig Generator AI - Release v1.0.${{ github.run_number }}'
+          body: 'Download the `.dmg` file below to install Fiverr Gig Generator AI on your Mac.'
+          draft: false
           prerelease: false
+          files: |
+            src-tauri/target/release/bundle/dmg/*.dmg
