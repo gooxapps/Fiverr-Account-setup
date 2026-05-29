@@ -8,11 +8,14 @@ import NotFound from "@/pages/NotFound";
 import SplashScreen from "@/components/features/SplashScreen";
 import { useState } from "react";
 
+import AutoUpdater from "@/components/features/AutoUpdater";
+
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   return (
     <BrowserRouter>
+      <AutoUpdater />
       <Toaster
         position="top-right"
         toastOptions={{

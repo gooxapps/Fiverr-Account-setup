@@ -38,5 +38,13 @@
     "android": {
       "debugApplicationIdSuffix": ".debug"
     }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDIwQjdGNkM3QTFFQzNEMQpSV1RSd3g1NmJIOExBaXlHbHBwTHQwTjdXa0FtaGIvcU1DQjNMaExiYXVRUTR5d2k5Y05HMVJ2Vgo=",
+      "endpoints": [
+        "https://github.com/gooxapps/Fiverr-Account-setup/releases/latest/download/latest.json"
+      ]
+    }
   }
 }
