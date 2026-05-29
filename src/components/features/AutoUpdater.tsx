@@ -7,6 +7,11 @@ export default function AutoUpdater() {
   const [checking, setChecking] = useState(false);
 
   useEffect(() => {
+    // Check if we are running inside Tauri. If not (e.g. running on Vercel), do nothing.
+    if (!('__TAURI_INTERNALS__' in window) && !('__TAURI__' in window)) {
+      return;
+    }
+
     async function checkForUpdates() {
       try {
         setChecking(true);
